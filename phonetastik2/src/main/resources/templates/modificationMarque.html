@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+
+	<nav>
+		<th:block th:insert="fragments/header2.html :: header"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/deconnexion.html :: administration">
+	</div>
+
+
+	<div class="container">
+		<h2 id="titreModificationMarque">Modification de Marque</h2>
+
+
+
+
+		<form action="#" id="formModificationMarque" method="post"
+			th:action="@{'/administration/modificationMarque/'+${marque.id}}">
+			<div class="form-group">
+				<p>
+					<label>id de la Marque</label>
+					<span th:text="${marque.id}"></span>
+				</p>
+
+				<p>
+					<label>Nom de la Marque</label>
+					<span th:text="${marque.nom}"></span>
+				</p>
+			</div>
+
+			<div class="form-group">
+
+
+				<label>Marque Visible</label>
+				<input type="radio" th:checked="${marque.isVisible}" name="visible" value="TRUE">
+
+
+
+				<label for="sexe_F">Marque invisible</label>
+				<input type="radio" name="visible" th:checked="${!marque.isVisible}" value="FALSE">
+			</div>
+			<div>
+				<input id="submit" type="submit" class="btn btn-primary" />
+			</div>
+		</form>
+		</br></br>
+		
+
+
+
+	</div>
+
+	</br></br></br></br>
+
+
+
+
+	<nav>
+		<th:block th:insert="fragments/footer.html :: footer"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+<script type="text/javascript">
+	function verifForm() {
+		$("#erreurNom").text("");
+		$("#erreurPrix").text("");
+
+
+		var resultat = true;
+		var nom = $("#nom").val();
+		var numNom = nom.indexOf(" ");
+		var prix = parseFloat($("#prix").val());
+		var prixString = $("#prix").val();
+		var numPoint = prixString.indexOf(",");
+
+
+		if (numNom != -1 || nom == "") {
+			resultat = false;
+			$("#erreurNom").text("Verifier que votre nom de Reparation est rempli et qu'il ne comporte pas d'espace ");
+		}
+
+		if (isNaN(prix)) {
+			resultat = false;
+			$("#erreurPrix").text("Verifier que le prix est bien renseigné ");
+		}
+
+		if (prix <= 0) {
+			resultat = false;
+			$("#erreurPrix").text("Verifier que le prix est bien renseigné et supérieur à zéro ");
+		}
+
+		if (numPoint != -1) {
+			resultat = false;
+			$("#erreurPrix").text("Verifier que le prix ne dit pas etre écrit avec une virgule mais avec un point exemple 99.99 euros ")
+		}
+
+
+
+		
+
+
+		return resultat;
+	}
+
+
+	
+
+
+	function verifFormTotal() {
+		var verif1 = verifForm();
+
+		return verif1;
+	}
+
+
+	
+
+
+</script>
+
+<body>
+
+	<nav>
+		<th:block th:insert="fragments/header2.html :: header"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/deconnexion.html :: administration">
+	</div>
+
+
+	<div class="container">
+		<h2>Création de la Réparation pour le modèle [[${modele.reference}]]</h2>
+
+
+
+		<form action="#" method="post" th:action="@{'/administration/reparation/creation'}"
+			th:object="${reparationCreationDTO}" onsubmit="return verifFormTotal()" enctype="multipart/form-data">
+
+			<div class="form-group">
+				<label>Nom de la réparation</label>
+				<input id="nom" type="text" th:field="*{nom}" th:errorclass="'is-invalid'" class="form-control" />
+				<p th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" class="invalid-feedback">Incorrect
+				</p>
+				<div class="text-danger" id="erreurNom"></div>
+			</div>
+			<div class="form-group">
+				<label>Prix de la réparation</label>
+				<input id="prix" type="text" th:field="*{prix}" th:errorclass="'is-invalid'" class="form-control" />
+				<p th:if="${#fields.hasErrors('prix')}" th:errors="*{prix}" class="invalid-feedback">Incorrect</p>
+				<div class="text-danger" id="erreurPrix"></div>
+			</div>
+
+			
+			<div class="text-danger" id="erreur"><span th:text="${erreurCreationReparation}"
+					style="font-weight: bolder"></span></div>
+
+
+			<div class="form-group">
+				<input type="hidden" th:field="*{idModele}" id="idModele" />
+
+			</div>
+
+			<div class="form-group">
+				<input type="hidden" th:field="*{nomModele}" id="nomModele" />
+
+			</div>
+			</br></br>
+			<input id="submit" type="submit" class="btn btn-primary" />
+		</form>
+
+
+
+
+	</div>
+
+	</br></br></br></br>
+
+
+
+
+	<nav>
+		<th:block th:insert="fragments/footer.html :: footer"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

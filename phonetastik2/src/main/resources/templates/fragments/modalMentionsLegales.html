@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+
+	<div th:fragment="modalMentionsLegales">
+
+		<button type="button" class="btn-lg btn-link" data-toggle="modal" data-target="#myModal">Mentions légales</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title" style="color:red; font-weight: bolder; font-size:2.5em;">Mentions légales</h4>
+					</div>
+					<div class="modal-body" style="color:black; font-size:1em;">
+						<p style="color:black; font-size:1.5em;"> En vertu de l'article 6 de la loi n°2004-575 du 21 juin 2004 pour la confiance dans
+							l'économie numérique, il est précisé aux utilisateurs du site Internet
+							https://www.phonetastik-saintomer.fr l'identité des différents intervenants dans le cadre de
+							sa réalisation et de son suivi :</p>
+							
+							<ul>
+							<li>PHONETASTIK</li>
+							<li>FJ : Affaire personnelle commerçant</li>
+							<li>Capital social de : [CAPITAL]</li>
+							<li>TVA : [TVA]</li>
+							<li>SIREN : ? </li>
+							<li> 8 rue d'Arras , 62500 Saint-Omer</li>
+							
+							</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+
+
+</body>
+
+
+
+
+
+
+<div>
+	<th:block th:insert="fragments/default.html :: scripts">
+</div>

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+
+	<nav>
+		<th:block th:insert="fragments/header2.html :: header"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/deconnexion.html :: administration">
+	</div>
+
+
+
+	<div class="container">
+
+		<div class="jumbotron">
+			<h2>Gestion des Marques</h2>
+			<div class="row">
+				<div class="col-sm-6"><a th:href="@{'/administration/creationMarque'}"><button type="button"
+							class="btn btn-primary">Créer une Marque</button></a></div>
+				<div class="col-sm-6"><a th:href="@{'/administration/modificationMarque'}"><button type="button"
+							class="btn btn-primary">Modifier une Marque</button>
+							</a>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="jumbotron">
+			<h2>Gestion des Modèles de télèphone</h2>
+			<div class="row">
+				<div class="col-sm-6"><a th:href="@{'/administration/modele/creation'}"><button type="button"
+							class="btn btn-primary">Créer un Modèle</button></a>
+				</div>
+				<div class="col-sm-6"><a th:href="@{'/administration/modele/list'}"><button type="button"
+							class="btn btn-primary">Modifier un Modèle</button></a>
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<div class="jumbotron">
+			<h2>Gestion des Réparation</h2>
+			<div class="row">
+				<div class="col-sm-6"><a th:href="@{'/administration/reparation/creation'}"><button type="button"
+							class="btn btn-primary">Créer une Réparation</button></a>
+				</div>
+				<div class="col-sm-6"><a th:href="@{'/administration/reparation/list'}"><button type="button"
+							class="btn btn-primary">Modifier une Réparation</button></a>
+				</div>
+
+			</div>
+
+		</div>
+
+
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<nav>
+		<th:block th:insert="fragments/footer.html :: footer"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+
+</body>
+
+</html>

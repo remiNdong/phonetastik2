@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+
+	<div class="conteneurMarque" th:fragment="conteneurMarque">
+
+			<h3 th:text="${marque.nom}"></h3>
+			<!--<img class="img-responsive" th:alt="${marque.nom}" role="presentation" th:src="@{'/images/imagesDomaine/apple.jpg'}" width="300"
+				height="100" />-->
+			<img class="img-responsive" th:alt="${marque.nom}" role="presentation"
+			th:src="@{'https://phonetastikbucket.s3.eu-west-3.amazonaws.com/'+${marque.filename}}" width="300"
+			height="100" />
+
+
+
+
+	</div>
+
+
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+</body>
+
+</html>

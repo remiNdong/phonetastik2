@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+
+	<div id="conteneurHaut">
+		<nav>
+			<th:block th:insert="fragments/header2.html :: header"></th:block>
+		</nav>
+
+
+		<div>
+			<th:block th:insert="fragments/deconnexion.html :: administration"></th:block>
+		</div>
+
+
+
+
+		<div id="conteneurRuban1" th:fragment="barreSousFooter">
+
+			<div class="row" id="conteneurRuban1_1">
+				<div class="col-sm-6"><img class="img-responsive" role="presentation"
+						th:src="@{'/images/rubanHaut2bis.PNG'}" width="1800" height="800" /></div>
+				<div class="col-sm-6"> <a href="tel:+33767226264"><img class="img-responsive" role="presentation"
+							th:src="@{'/images/numeroTel.PNG'}" width="1500" height="800" /></a></div>
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<div>
+		<th:block th:insert="fragments/carouselBis.html :: carousel"></th:block>
+	</div>
+
+	<div>
+		<th:block th:insert="fragments/descriptionMagasin.html :: descriptionMagasin"></th:block>
+	</div>
+
+
+	<fieldset class="scheduler-border container" id="boxAvis">
+		<legend class="scheduler-border"><a href="https://g.page/r/CZxCL9DNHIyoEB0/review">Donnez votre avis sur Google
+				</ahref>
+		</legend>
+		<th:block th:insert="fragments/carouselAvis.html :: carousel"></th:block>
+
+	</fieldset>
+
+	<div id="containerMap">
+		<iframe
+			src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10098.115047984049!2d2.2572631!3d50.74722850000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dcf911c4ab1cc9%3A0xa88c1ccdd02f429c!2sPhonetastiK!5e0!3m2!1sfr!2sfr!4v1668540559326!5m2!1sfr!2sfr"
+			width="1980px" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+			referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</div>
+
+
+
+		<nav>
+			<th:block th:insert="fragments/footer.html :: footerFantome"></th:block>
+		</nav>
+		
+		<nav>
+			<th:block th:insert="fragments/footer.html :: footer"></th:block>
+		</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+
+</body>
+
+</html>

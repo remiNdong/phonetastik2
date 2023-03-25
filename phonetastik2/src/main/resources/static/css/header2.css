@@ -1,0 +1,36 @@
+.navHeader {
+ background-color:black;
+
+}
+
+#titreSite {
+	color : red;
+	font-size: 1.5em;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+
+#example-1 ul li a {
+	color : white;
+	font-size: 1.5em;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+
+#dropdownIconeBis  li a i {
+	color : black
+	
+}
+
+
+#dropdownIconeBis  li a  {
+	background-color: white;
+	
+}
+
+
+.conteneurNav li {
+	margin-left : 3px;
+	margin-right  :3px;
+}
+

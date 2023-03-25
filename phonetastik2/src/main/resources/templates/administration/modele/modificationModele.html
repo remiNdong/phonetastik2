@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+<script type="text/javascript">
+	function verifForm() {
+
+		$("#erreurPrix").text("");
+
+		var resultat = true;
+		var prix = parseFloat($("#prix").val());
+
+
+		if (isNaN(prix)) {
+			resultat = false;
+			$("#erreurPrix").text("Verifier que le prix est bien renseigné ");
+		}
+
+		if (prix <= 0) {
+			resultat = false;
+			$("#erreurPrix").text("Verifier que le prix est bien renseigné et supérieur à zéro ");
+		}
+
+		return resultat;
+	}
+
+</script>
+
+
+
+<body>
+
+	<nav>
+		<th:block th:insert="fragments/header2.html :: header"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/deconnexion.html :: administration">
+	</div>
+
+
+	<div class="container">
+		<h2 id="titreModificationMarque">Modification de Modele</h2>
+
+
+
+
+		<form action="#" id="formModificationModele" method="post"
+			th:action="@{'/administration/modele/modification/'+ ${modeleDTO.id}}" th:object="${modeleDTO}"
+			onsubmit="return verifForm()">
+			<div class="form-group">
+
+				<p>
+					<label>Marque du modèle</label>
+					<span th:text="${modeleDTO.nomMarque}"></span>
+				</p>
+				<label>Réference du modèle</label>
+				<span th:text="${modeleDTO.reference}"></span>
+				</p>
+
+
+			</div>
+
+			<div class="form-group">
+				<label>Prix du modele</label>
+				<input id="prix" type="text" th:field="*{prix}" class="form-control" />
+				<p th:if="${#fields.hasErrors('prix')}" th:errors="*{prix}" class="invalid-feedback">Incorrect</p>
+				<div class="text-danger" id="erreurPrix"></div>
+			</div>
+
+			<div class="form-group">
+
+
+				<label>Modele Visible</label>
+				<input type="radio" th:checked="${modeleDTO.isVisible}" name="modeleVisible" value="TRUE">
+
+
+
+				<label for="sexe_F">Modele invisible</label>
+				<input type="radio" name="modeleVisible" th:checked="${!modeleDTO.isVisible}" value="FALSE">
+			</div>
+			<div class="form-group">
+
+
+
+
+
+				<input type="hidden" th:field="*{idMarque}">
+			</div>
+			<div>
+				<input id="submit" type="submit" class="btn btn-primary" />
+			</div>
+
+		</form>
+		</br></br>
+
+		<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Supprimer le
+			modèle</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title" style="color : red">Etes vous certain de vouloir supprimer ce modèle
+						</h4>
+					</div>
+					<div class="modal-body">
+						<p>Si oui cliquer sur le lien ci dessous sinon cliquer sur Fermer</p>
+						<a th:href="@{'/administration/modele/suppression/'+${modeleDTO.id}}">SUPPRIMER LE MODELE</a>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+					</div>
+				</div>
+
+
+			</div>
+
+			</br></br></br></br>
+
+
+
+
+			<nav>
+				<th:block th:insert="fragments/footer.html :: footer"></th:block>
+			</nav>
+
+
+			<div>
+				<th:block th:insert="fragments/default.html :: scripts">
+			</div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

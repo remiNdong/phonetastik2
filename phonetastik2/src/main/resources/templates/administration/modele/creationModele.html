@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+<script type="text/javascript">
+	function verifForm() {
+		$("#erreurReference").text("");
+		$("#erreurImage").text("");
+		$("#erreurPrix").text("");
+
+
+		var resultat = true;
+		var reference = $("#reference").val();
+		var imageModele = $("#imageModele").val();
+		var numReference = reference.indexOf(" ");
+		var prix = parseFloat($("#prix").val());
+		var prixString=$("#prix").val();
+		var numPoint=prixString.indexOf(",");
+
+
+		if (numReference != -1 || reference == "") {
+			resultat = false;
+			$("#erreurReference").text("Verifier que votre nom de Modele est rempli et qu'il ne comporte pas d'espace ");
+		}
+
+		if (isNaN(prix)) {
+			resultat = false;
+			$("#erreurPrix").text("Verifier que le prix est bien renseigné ");
+		}
+
+		if (prix <= 0) {
+			resultat = false;
+			$("#erreurPrix").text("Verifier que le prix est bien renseigné et supérieur à zéro ");
+		}
+		
+		if(numPoint!=-1){
+				resultat = false;
+			$("#erreurPrix").text("Verifier que le prix ne dit pas etre écrit avec une virgule mais avec un point exemple 99.99 euros ")
+		}
+
+
+
+		var lastPoint = imageModele.lastIndexOf(".") + 1;
+		var extFile = imageModele.substr(lastPoint, imageModele.length).toLowerCase();
+		if (extFile == "jpg") {
+			//TO DO
+		} else {
+			resultat = false;
+			$("#erreurImage").text("Seuls les de type .jpg sont acceptés");
+		}
+
+
+
+		return resultat;
+	}
+
+
+	function verifForm2() {
+
+		var fichiers = document.querySelector("#imageModele");
+		var curfiles = fichiers.files;
+
+
+		$("#erreurImage2").text("");
+
+		var resultat = true;
+		if (curfiles.length === 0) {
+			resultat = false;
+			$("#erreurImage2").text("Aucune image selectionnée");
+
+		} else {
+			var currentFile = curfiles[0];
+
+
+			if (!validFileType(currentFile)) {
+				resultat = false;
+				$("#erreurImage2").text("Attention Seuls les de type .jpg sont acceptés");
+
+			}
+
+
+		}
+
+
+
+		return resultat;
+	}
+
+
+	function verifFormTotal() {
+		var verif1 = verifForm();
+		var verif2 = verifForm2();
+
+		return verif1 && verif2;
+	}
+
+
+	function validFileType(file) {
+
+		var fileTypeAccepte = 'image/jpeg';
+		if (file.type === fileTypeAccepte) {
+			return true;
+		}
+		return false;
+	}
+
+
+
+</script>
+
+<body>
+
+	<nav>
+		<th:block th:insert="fragments/header2.html :: header"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/deconnexion.html :: administration">
+	</div>
+
+
+	<div class="container">
+		<h2>Création de Modele</h2>
+
+
+		<form action="#" method="post" th:action="@{'/administration/modele/creation'}" th:object="${modeleCreationDTO}"
+			onsubmit="return verifFormTotal()" enctype="multipart/form-data">
+			<div class="form-group">
+				<label>Marque</label>
+				<select class="form-control" id="idMarque" th:field="*{idMarque}">
+					<option th:each="marque : ${marques}" th:value="${marque.id}" th:text="${marque.nom}"></option>
+					<p th:if="${#fields.hasErrors('idMarque')}" th:errors="*{idMarque}" class="invalid-feedback">
+						Incorrect</p>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Référence du modele</label>
+				<input id="reference" type="text" th:field="*{reference}" th:errorclass="'is-invalid'"
+					class="form-control" />
+				<p th:if="${#fields.hasErrors('reference')}" th:errors="*{reference}" class="invalid-feedback">Incorrect
+				</p>
+				<div class="text-danger" id="erreurReference"></div>
+			</div>
+			<div class="form-group">
+				<label>Prix du modele</label>
+				<input id="prix" type="text" th:field="*{prix}" th:errorclass="'is-invalid'" class="form-control" />
+				<p th:if="${#fields.hasErrors('prix')}" th:errors="*{prix}" class="invalid-feedback">Incorrect</p>
+				<div class="text-danger" id="erreurPrix"></div>
+			</div>
+
+			<div class="form-group">
+				<label>Image</label>
+				<input type="file" id="imageModele" name="imageModele" accept=".jpg" />
+				<div class="text-danger" id="erreurImage"></div>
+				<div class="text-danger" id="erreurImage2"></div>
+			</div>
+			<div class="text-danger" id="erreur"><span th:text="${erreurCreationModele}"
+					style="font-weight: bolder"></span></div>
+			</br></br>
+			<input id="submit" type="submit" class="btn btn-primary" />
+		</form>
+
+
+
+
+	</div>
+
+	</br></br></br></br>
+
+
+
+
+	<nav>
+		<th:block th:insert="fragments/footer.html :: footer"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

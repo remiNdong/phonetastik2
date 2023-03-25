@@ -1,0 +1,81 @@
+.conteneurNav {
+	display : flex ;
+align-items: center;
+ background-color:black;
+    color :white;
+}
+
+#navComplet  {
+    	display : flex ;
+align-items: center;
+ background-color:black;
+ 
+}
+
+#titreSite  {
+	font-size: 1.5em;
+	color:white; 
+}
+
+
+
+
+.navHeader{
+	 background-color: black;
+	 color :white;
+	 margin-bottom: 0;
+	 
+}
+
+li {
+	margin-left : 10px;
+   margin-right: 10px;
+font-size: 1.5em;
+}
+
+
+
+.nav.navbar-nav li a {
+color:white; 
+}
+
+.conteneurNav .navbar-header a{
+	color :red;
+	font-size: 1.5em;
+}
+
+
+
+#dropdownIcone li a {
+	background-color: white;
+	font-size: 0.75em;
+	color: black ;
+}
+
+#dropdownIconeBis li a {
+	background-color: white;
+	font-size: 0.75em;
+	color: black ;
+}
+
+
+
+#numTel { 
+	margin-top : 30px;
+	margin-right:0;
+	}
+	
+	
+#numTelButton { 
+	font-size: 1em;
+	}
+
+
+
+
+
+
+
+
+
+

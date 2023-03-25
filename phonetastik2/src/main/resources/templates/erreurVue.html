@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+
+
+
+	<div>
+
+		<nav>
+			<th:block th:insert="fragments/header2.html :: header"></th:block>
+		</nav>
+
+		<br> <br> <br>
+		
+		
+			<div>
+			<th:block th:insert="fragments/deconnexion.html :: administration">
+		</div>
+
+
+
+		<div>
+		
+			<h3>Problème technique , veuillez retourner sur la page d'acceuil</h3>
+			<p th:text="${erreurVue}"></p>
+			<p><a th:href="@{'/home'}">Retour à l'acceuil</a></p>
+
+
+		</div>
+		
+		</br>	</br>	</br>	</br>
+
+
+		<nav>
+			<th:block th:insert="fragments/footer.html :: footer"></th:block>
+		</nav>
+
+
+		<div>
+			<th:block th:insert="fragments/default.html :: scripts">
+		</div>
+
+
+
+
+
+
+
+</body>
+
+</html>

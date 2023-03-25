@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+
+	<nav>
+		<th:block th:insert="fragments/header2.html :: header"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/deconnexion.html :: administration">
+	</div>
+
+
+	<div class="container">
+
+		<div class="conteneurListe">
+			<h1>Choisissez la marque du modèle à modifier</h1>
+
+
+				<div class="col-sm-3" th:each="marque: ${marques}">
+					<a th:href="@{'/administration/modele/list/'+${marque.id}}">
+						<div th:replace="fragments/conteneurMarque :: conteneurMarque"></div>
+					</a>
+				</div>
+				
+				
+		</div>
+
+
+
+	</div>
+	</br></br></br></br>
+
+	<nav>
+		<th:block th:insert="fragments/footer.html :: footer"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+
+</body>
+
+</html>

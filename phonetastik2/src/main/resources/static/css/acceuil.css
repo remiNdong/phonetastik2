@@ -1,0 +1,71 @@
+#containerAcceuil {
+	text-align: center;
+	
+}
+
+#containerAcceuil h1 {
+	
+font-weight: bold;
+	
+}
+#containerAcceuil p {
+		 font-family: Arial;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#containerAcceuil img {
+	margin :auto;
+}
+
+.barreSousFooter {background-color: black;}
+
+
+
+
+fieldset.scheduler-border#boxArticle {
+	
+    border-top: solid 4px red !important;
+    padding: 0 10px 10px 10px;
+    border-bottom:solid 4px white !important;
+    border-left: solid 4px white !important;
+    border-right:solid 4px white !important;
+    
+}
+
+legend.scheduler-border#legendArticle {
+    width: auto !important;
+    border: none;
+    font-size: 25px;
+    color : blue ;
+}
+
+#legendArticle {
+	text-align: center;
+	
+}
+
+#articleVDN {
+ font-size: 20px;
+	
+}
+
+#boxArticle {
+	text-align: center;
+	margin-top : 30px;
+	margin-bottom : 30px;
+	
+}
+#titreRealisations{
+	text-align: center;
+	margin-top : 30px;
+}
+
+
+#titreRealisations h1{
+	font-weight: bold;
+}
+
+#containerCarousel{
+	margin-top : 30px;
+}

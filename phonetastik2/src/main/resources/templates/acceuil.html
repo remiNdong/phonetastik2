@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+
+	<div class="barreSousFooter">
+		<nav>
+			<th:block th:insert="fragments/header2.html :: header"></th:block>
+		</nav>
+
+		<div class="barreSousFooter">
+			<th:block th:insert="index.html :: barreSousFooter">
+		</div>
+	</div>
+
+	<div>
+		<th:block th:insert="fragments/deconnexion.html :: administration">
+	</div>
+
+
+	<div class="container" id="containerAcceuil">
+		<h1>Bienvenue chez Phonetastik</h1>
+		<p>Ouverts depuis mai 2022 , nous sommes spécialistes de la réparation de téléphones, tablettes, consoles de
+			jeux vidéos,
+			ordinateurs</p>
+		<p>N'hésitez pas à nous rendre visite si vous voulez donner une nouvelle vie à vos appareils électroniques</p>
+		<p>Vous pourrez également trouver tous les derniers téléphones et accessoires</p>
+		<p>Nous vous proposons de également de racheter vos anciens appareils.</p>
+		<img th:src="@{'/images/phonetastikPhoto.jpg'}" class=" img-responsive img-rounded" alt="Phonetastik" />
+	</div>
+	<div id="titreRealisations">
+	<h1>Nos réalisations</h1>
+	</divid>
+
+	<div id="containerCarousel">
+		<th:block th:insert="fragments/carouselReparations.html :: carousel"></th:block>
+	</div>
+
+	<fieldset class="scheduler-border" id="boxArticle">
+		<legend id="legendArticle" class="scheduler-border">Phonetastik à l'honneur</legend>
+		<a id="articleVDN"
+			href="https://www.lavoixdunord.fr/1182655/article/2022-05-22/saint-omer-phonetastik-une-nouvelle-boutique-de-reparation-de-telephones-rue-d">
+			Article : La voix du Nord </a>
+
+	</fieldset>
+
+
+
+
+
+
+	<nav>
+		<th:block th:insert="fragments/footer.html :: footer"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+
+</body>
+
+</html>

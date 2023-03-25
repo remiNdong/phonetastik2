@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<nav class="navbar navbar-inverse navHeader" th:fragment="header">
+	<div class="container-fluid" id="navComplet">
+
+		<!-- Brand/logo -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-1"
+				aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a id="titreSite" class="navbar-brand" th:href="@{'/home'}">PhonetastiK</a>
+		</div>
+
+		<!-- Collapsible Navbar -->
+		<div class="collapse navbar-collapse" id="example-1">
+			<ul class="nav navbar-nav conteneurNav">
+
+
+				<li class="nav-item">
+					<a th:href="@{'/acceuil'}">Qui sommes nous ?</a>
+				</li>
+				<!--<li class="nav-item">
+					<a href="https://www.facebook.com/Phonetastik">
+						<i class="fa fa-facebook" style="font-size:24px"></i>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a href="https://www.instagram.com/phonetastik62500/">
+						<i class="fa fa-instagram" style="font-size:24px"></i>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a
+						href="https://www.snapchat.com/add/phonetastik?share_id=OEJFNDdDREQtMzNFRi00QzAwLTlCOTUtNzA5NDQ5MjZGRjk4&locale=fr_FR&sid=c6f34ebeeb8447439bcceaddc1c049c9">
+						<i class="fa fa-snapchat" style="font-size:24px"></i>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a href="https://www.google.com/search?q=phonetastik%20saint-omer">
+						<i class="fa fa-google" style="font-size:24px"></i>
+					</a>
+				</li>
+
+
+				<li class="nav-item">
+					<a th:href="@{'/listeMarques'}">Acheter</a>
+				</li>
+				<li class="nav-item">
+					<a th:href="@{'/listeMarques'}">Réparer</a>
+				</li>
+				<li class="nav-item">
+					<a th:href="@{'/listeMarques'}">Accessoires</a>
+				</li>
+				-->
+
+				<li class="dropdown"><a class="dropdown-toggle" id="dropdownReseaux" data-toggle="dropdown"
+						href="#">Contact<span class="caret"></span></a>
+					<ul class="dropdown-menu" id="dropdownIconeBis">
+
+						<li class="nav-item">
+							<a href="https://www.facebook.com/Phonetastik">
+								<i class="fa fa-facebook" style="font-size:24px"> facebook</i>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="https://www.instagram.com/phonetastik62500/">
+								<i class="fa fa-instagram" style="font-size:24px"> instagram</i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a
+								href="https://www.snapchat.com/add/phonetastik?share_id=OEJFNDdDREQtMzNFRi00QzAwLTlCOTUtNzA5NDQ5MjZGRjk4&locale=fr_FR&sid=c6f34ebeeb8447439bcceaddc1c049c9">
+								<i class="fa fa-snapchat" style="font-size:24px"> snapchat</i>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="https://www.google.com/search?q=phonetastik%20saint-omer">
+								<i class="fa fa-google" style="font-size:24px"> google</i>
+							</a>
+						</li>
+						<li class="nav-item">
+
+							<a href="tel:+33767226264">
+								<i class="glyphicon glyphicon-earphone" style="font-size:24px">0767226264</i>
+
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				
+
+				<li class="nav-item">
+					<a th:href="@{'/clientele/listeMarques'}">Acheter / Réparer</a>
+				</li>
+				
+				
+				
+				
+				<li class="nav-item">
+					<a href="mailto:contact@phonetastik.fr?subject=Question client">
+						<i class="fa fa-envelope" style="font-size:24px"></i>
+						<span>contact@phonetastik.fr</span>
+					</a>
+				</li>
+
+			</ul>
+
+
+
+			<!--<ul class="nav navbar-nav navbar-right" id="numTel">
+
+				<li class="nav-item">
+					<button type="button" class="btn btn-danger" id="numTelButton">
+						<a href="tel:+33767226264">
+							<i class="glyphicon glyphicon-earphone" style="font-size:24px"></i>
+							07 67 22 62 64
+						</a>
+					</button>
+				</li>
+
+
+			</ul>-->
+
+		</div>
+
+	</div>
+</nav>
+
+
+
+<!-- Initialize Bootstrap functionality -->
+<script>
+	// Initialize tooltip component
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+	})
+
+	// Initialize popover component
+	$(function () {
+		$('[data-toggle="popover"]').popover()
+	})
+</script>
+
+
+
+
+
+<div>
+	<th:block th:insert="fragments/default.html :: scripts">
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+
+	<nav>
+		<th:block th:insert="fragments/header2.html :: header"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/deconnexion.html :: administration">
+	</div>
+
+
+	<div class="container">
+
+		<div class="conteneurListe">
+			<h1 th:text="${nomMarque}"></h1>
+			</br>
+			<h3>Choisissez votre Modèle pour lequel la réparation sera modifiée</h3>
+
+			<div th:each="modele  : ${modeles}">
+
+
+				<div class="col-sm-3">
+
+
+					<a th:href="@{'/administration/reparation/list/modele/'+${modele.id}}">
+						<div th:replace="fragments/conteneurModele :: conteneurModele">
+						</div>
+					</a>
+
+				</div>
+
+
+
+			</div>
+
+			<div th:if="${modeles.isEmpty}" style="color : red ; font-weight : bold"> Il n' y a aucun modèle pour cette Marque.</div>
+
+		</div>
+
+
+	</div>
+	</br></br></br></br>
+
+
+
+	<nav>
+		<th:block th:insert="fragments/footer.html :: footer"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+
+</body>
+
+</html>

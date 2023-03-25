@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+
+
+
+	<div>
+
+		<nav>
+			<th:block th:insert="fragments/header2.html :: header"></th:block>
+		</nav>
+
+		<br> <br> <br>
+		<h3 th:text="#{new.account.title}"></h3>
+		<hr />
+		<br>
+		<form class="form-horizontal" method="post" name="userForm" th:action="@{/new-account}" th:object="${user}"
+			onsubmit="return verifForm()">
+			<div class=" form-group">
+				<label for="username" class="col-sm-2 control-label" th:text="#{new.account.username}"></label>
+				<div class="col-sm-5">
+					<input th:field="${user.email}" type="text" id="email" name="${email}" class="form-control"
+						th:placeholder="#{new.account.your.username}" />
+					<div class="text-danger" id="erreurEmail"></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="pseudo" class="col-sm-2 control-label" th:text="#{new.account.pseudo}"></label>
+				<div class="col-sm-5">
+					<input th:field="${user.pseudo}" type="text" id="pseudo" name="${pseudo}" class="form-control"
+						th:placeholder="#{new.account.your.pseudo}" />
+					<div class="text-danger" id="erreurPseudo"></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password" class="col-sm-2 control-label" th:text="#{new.account.password}"></label>
+				<div class="col-sm-5">
+					<input th:field="${user.password}" type="password" class="form-control" id="password"
+						name="password" th:placeholder="#{new.account.your.password}" />
+					<div class="text-danger" id="erreurMotDePasse"></div>
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-5">
+					<button type="submit" class="btn btn-primary" th:text="#{new.account.create}"></button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+	<nav>
+		<th:block th:insert="fragments/footer.html :: footer"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+
+
+	<script type="text/javascript">
+		function verifForm() {
+			$("#erreurEmail").text("");
+			$("#erreurPseudo").text("");
+			$("#erreurMotDePasse").text("");
+
+
+			var resultat = true;
+			var email = $("#email").val();
+			var pseudo = $("#pseudo").val();
+			var mdp = $("#password").val();
+			var numEmail = email.indexOf(" ");
+			var numPseudo = pseudo.indexOf(" ");
+			var numMdp = mdp.indexOf(" ");
+
+			if (numEmail != -1 || email == "") {
+				resultat = false;
+				$("#erreurEmail").text("Verifier que votre Email est rempli et qu'il ne comporte pas d'espace ");
+			}
+
+			if (numPseudo != -1 || pseudo == "") {
+				resultat = false;
+				$("#erreurPseudo").text("Verifier que votre pseudo est rempli et qu'il ne comporte pas d'espace ");
+			}
+
+			if (numMdp != -1 || mdp == "") {
+				resultat = false;
+				$("#erreurMotDePasse").text("Verifier que votre mot de passe est rempli et qu'il ne comporte pas d'espace ");
+			}
+
+			return resultat;
+		}
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

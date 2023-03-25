@@ -1,0 +1,26 @@
+
+
+.conteneurMarque {
+
+  padding: 15px;
+	text-align: center;
+	 box-shadow: 10px 10px 5px grey;
+	 margin-bottom: 5px;
+	 
+}
+
+.conteneurMarque h3{
+	text-align: center;
+	}
+	
+	.conteneurMarque img{
+	text-align: center;
+	}
+	
+	
+
+.conteneurListe {
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}

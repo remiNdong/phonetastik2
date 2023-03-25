@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+
+	<nav>
+		<th:block th:insert="fragments/header2.html :: header"></th:block>
+	</nav>
+
+	<div class="container">
+
+		<div style="text-align: center;  ">
+			<h3 th:text="${modele.reference}"></h3>
+			<h4 th:text="${modele.prix} + '€'"></h4>
+			<img class="img-responsive center-block" th:alt="${modele.reference}" role="presentation"
+				th:src="@{'/images/imagesDomaine/iphone-13-pro.jpg'}" width="250" height="80" />
+			<h4>
+				<a th:href="@{'/clientele/list/modele/'+${modele.id}}">Visualiser les réparations possibles pour ce modèle
+				</a>
+			</h4>
+		</div>
+
+
+	</div>
+
+
+
+	<nav>
+		<th:block th:insert="fragments/footer.html :: footer"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+
+</body>
+
+</html>

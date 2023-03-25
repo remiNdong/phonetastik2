@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+	<div class="footerCss" th:fragment="footerFantome">
+		<div class="row" id="rowFooter">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4"></div>
+		</div>
+	</div>
+	
+	<div class="footerCss" th:fragment="footer">
+
+<!-- anciennement la row ci dessous avait id rowFooter-->
+
+		<div class="row">
+
+			<div class="col-sm-4" id="containerLogo">
+
+				<!--<img role="presentation" th:src="@{'/images/phonetastikRemi.png'}" width="100" height="80" />-->
+				<!--<img th:src="@{'https://phonetastikbucket.s3.eu-west-3.amazonaws.com/logo.jpg'}" width="100" height="150"  />-->
+				<img role="presentation" th:src="@{'/images/logoFinal.PNG'}" width="120" height="120" />
+			</div>
+
+
+
+
+			<div class="col-sm-4">
+				<a th:href="@{'/home'}">
+					<h3>Phonetastik</h3>
+				</a>
+				<p>Adresse : 8 Rue d'Arras, 62500 Saint-Omer</p>
+				<p>
+					<a href="tel:+33767226264">
+						<i class="glyphicon glyphicon-earphone" style="font-size:24px"></i>
+						07 67 22 62 64
+					</a>
+				</p>
+			</div>
+
+			<div class="col-sm-4">
+
+				<div>
+					<th:block th:insert="fragments/modalMentionsLegales.html :: modalMentionsLegales"></th:block>
+				</div>
+
+				<div>
+					<p>Mardi au Vendredi 10:00-12:00 , 14:00-19:00</p>
+					<p>Samedi 10:00-12:00 , 14:00-19:00</p>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:insert="fragments/default.html :: headerfiles"></th:block>
+</head>
+
+<body>
+
+	<nav>
+		<th:block th:insert="fragments/header2.html :: header"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/deconnexion.html :: administration">
+	</div>
+
+
+	<div class="container">
+
+		<h2 th:text=" 'Réparations pour le ' +${modele.reference}"></h2>
+			
+			<ul class="list-group">
+
+				<li style="margin : 4px; color :  rgb(94, 94, 255); font-weight : bolded ;" th:each="reparation  : ${reparations}" class="list-group-item"><span
+						th:text="${reparation.nom} +'   -    ' + ${reparation.prix} + ' €'"></span>
+						<button sec:authorize="isAuthenticated()" type="button" class="btn btn-info navbar-right">
+						<a th:href="@{'/administration/reparation/modification/'+${reparation.id}}">Modifier</a>
+						</button>
+						
+
+			</ul>
+			
+			
+
+
+	</div>
+	</br></br></br></br>
+
+
+
+	<nav>
+		<th:block th:insert="fragments/footer.html :: footer"></th:block>
+	</nav>
+
+
+	<div>
+		<th:block th:insert="fragments/default.html :: scripts">
+	</div>
+
+
+</body>
+
+</html>
