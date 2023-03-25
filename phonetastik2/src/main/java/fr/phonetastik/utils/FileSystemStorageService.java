@@ -13,9 +13,9 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 @Service
 public class FileSystemStorageService implements StorageService {
 
-	private String bucketName = "phonetastikbucket";
-	private String accesskey = "AKIAUF7XY3TSAFNGGPNL";
-	private String secretkey = "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";
+	private String bucketName = "";
+	private String accesskey = "";
+	private String secretkey = "";
 	private AmazonS3 s3client;
 	//private Map<String, File> map;
 
