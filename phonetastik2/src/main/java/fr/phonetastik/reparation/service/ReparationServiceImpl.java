@@ -1,5 +1,6 @@
 package fr.phonetastik.reparation.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,7 +54,13 @@ public class ReparationServiceImpl implements ReparationService {
 	public List<ReparationDTO> findReparationByModele(ModeletelephoneDTO modeleDTO) {
 		Modeletelephone modele = modeletelephoneRepository.getReferenceById(modeleDTO.getId());
 		List<Reparation> reparations=reparationRepository.findByModeletelephone(modele);
-		return reparations.stream().map(reparationMapper::reparationToReparationDTO).toList();
+		//return reparations.stream().map(reparationMapper::reparationToReparationDTO).toList();
+		 List<ReparationDTO> retour=new ArrayList<ReparationDTO>();
+	        
+	        for(Reparation reparation : reparations)
+	        	retour.add(reparationMapper.reparationToReparationDTO(reparation));
+			
+	        return retour;
 	}
 
 	@Transactional(readOnly = true)
@@ -62,7 +69,13 @@ public class ReparationServiceImpl implements ReparationService {
 
 		Modeletelephone modele = modeletelephoneRepository.getReferenceById(idModele);
 		List<Reparation> reparations = reparationRepository.findByModeletelephoneAndNom(modele, nom);
-		return reparations.stream().map(reparationMapper::reparationToReparationDTO).toList();
+		//return reparations.stream().map(reparationMapper::reparationToReparationDTO).toList();
+		 List<ReparationDTO> retour=new ArrayList<ReparationDTO>();
+	        
+	        for(Reparation reparation : reparations)
+	        	retour.add(reparationMapper.reparationToReparationDTO(reparation));
+			
+	        return retour;
 	}
 	
 	@Transactional
@@ -90,7 +103,13 @@ public class ReparationServiceImpl implements ReparationService {
 	public List<ReparationDTO> findReparationVisibleByModele(ModeletelephoneDTO modeleDTO) {
 		Modeletelephone modele = modeletelephoneRepository.getReferenceById(modeleDTO.getId());
 		List<Reparation> reparations=reparationRepository.findVisibleByModeletelephone(modele);
-		return reparations.stream().map(reparationMapper::reparationToReparationDTO).toList();
+		//return reparations.stream().map(reparationMapper::reparationToReparationDTO).toList();
+		 List<ReparationDTO> retour=new ArrayList<ReparationDTO>();
+	        
+	        for(Reparation reparation : reparations)
+	        	retour.add(reparationMapper.reparationToReparationDTO(reparation));
+			
+	        return retour;
 	}
 
 }
