@@ -19,6 +19,7 @@ public class Phonetastik2Application extends SpringBootServletInitializer  {
 	StorageService storageService;
 	
 
+	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(Phonetastik2Application.class);
